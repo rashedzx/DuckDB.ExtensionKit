@@ -1,4 +1,5 @@
-﻿using DuckDB.ExtensionKit.Native;
+using DuckDB.ExtensionKit.Native;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace DuckDB.ExtensionKit;
@@ -437,64 +438,114 @@ public unsafe struct DuckDBExtApiV1
 
     // === END OF STABLE API ===
 
-#if DUCKDB_EXTENSION_API_VERSION_UNSTABLE
-      // --- Deprecated functions ---
-      public delegate* unmanaged[Cdecl]<nint*, ulong> duckdb_row_count;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, void*> duckdb_column_data;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, byte*> duckdb_nullmask_data;
-      public delegate* unmanaged[Cdecl]<nint, ulong, nint> duckdb_result_get_chunk;
-      public delegate* unmanaged[Cdecl]<nint, byte> duckdb_result_is_streaming;
-      public delegate* unmanaged[Cdecl]<nint, ulong> duckdb_result_chunk_count;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, byte> duckdb_value_boolean;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, sbyte> duckdb_value_int8;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, short> duckdb_value_int16;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, int> duckdb_value_int32;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, long> duckdb_value_int64;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBHugeInt> duckdb_value_hugeint;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBUHugeInt> duckdb_value_uhugeint;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBDecimal> duckdb_value_decimal;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, byte> duckdb_value_uint8;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, ushort> duckdb_value_uint16;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, uint> duckdb_value_uint32;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, ulong> duckdb_value_uint64;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, float> duckdb_value_float;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, double> duckdb_value_double;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBDate> duckdb_value_date;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBTime> duckdb_value_time;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBTimestamp> duckdb_value_timestamp;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBInterval> duckdb_value_interval;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, byte*> duckdb_value_varchar;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBStringT> duckdb_value_string;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, byte*> duckdb_value_varchar_internal;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBStringT> duckdb_value_string_internal;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBBlob> duckdb_value_blob;
-      public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, byte> duckdb_value_is_null;
-      public delegate* unmanaged[Cdecl]<nint, nint*, DuckDBState> duckdb_execute_prepared_streaming;
-      public delegate* unmanaged[Cdecl]<nint, nint*, DuckDBState> duckdb_pending_prepared_streaming;
+    // === UNSTABLE API - These functions may change between DuckDB versions ===
 
-      // --- Arrow functions ---
-      public delegate* unmanaged[Cdecl]<nint, byte*, nint*, DuckDBState> duckdb_query_arrow;
-      public delegate* unmanaged[Cdecl]<nint, nint*, DuckDBState> duckdb_query_arrow_schema;
-      public delegate* unmanaged[Cdecl]<nint, nint*, DuckDBState> duckdb_prepared_arrow_schema;
-      public delegate* unmanaged[Cdecl]<nint, nint, nint*, void> duckdb_result_arrow_array;
-      public delegate* unmanaged[Cdecl]<nint, nint*, DuckDBState> duckdb_query_arrow_array;
-      public delegate* unmanaged[Cdecl]<nint, ulong> duckdb_arrow_column_count;
-      public delegate* unmanaged[Cdecl]<nint, ulong> duckdb_arrow_row_count;
-      public delegate* unmanaged[Cdecl]<nint, ulong> duckdb_arrow_rows_changed;
-      public delegate* unmanaged[Cdecl]<nint, byte*> duckdb_query_arrow_error;
-      public delegate* unmanaged[Cdecl]<nint*, void> duckdb_destroy_arrow;
-      public delegate* unmanaged[Cdecl]<nint*, void> duckdb_destroy_arrow_stream;
-      public delegate* unmanaged[Cdecl]<nint, nint*, DuckDBState> duckdb_execute_prepared_arrow;
-      public delegate* unmanaged[Cdecl]<nint, byte*, nint, DuckDBState> duckdb_arrow_scan;
-      public delegate* unmanaged[Cdecl]<nint, byte*, nint, nint, nint*, DuckDBState> duckdb_arrow_array_scan;
-      public delegate* unmanaged[Cdecl]<nint, nint> duckdb_stream_fetch_chunk;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong> duckdb_row_count;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, void*> duckdb_column_data;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, byte*> duckdb_nullmask_data;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, ulong, nint> duckdb_result_get_chunk;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, byte> duckdb_result_is_streaming;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, ulong> duckdb_result_chunk_count;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, byte> duckdb_value_boolean;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, sbyte> duckdb_value_int8;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, short> duckdb_value_int16;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, int> duckdb_value_int32;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, long> duckdb_value_int64;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBHugeInt> duckdb_value_hugeint;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBUHugeInt> duckdb_value_uhugeint;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBDecimal> duckdb_value_decimal;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, byte> duckdb_value_uint8;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, ushort> duckdb_value_uint16;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, uint> duckdb_value_uint32;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, ulong> duckdb_value_uint64;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, float> duckdb_value_float;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, double> duckdb_value_double;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBDate> duckdb_value_date;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBTime> duckdb_value_time;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBTimestamp> duckdb_value_timestamp;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBInterval> duckdb_value_interval;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, byte*> duckdb_value_varchar;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBStringT> duckdb_value_string;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, byte*> duckdb_value_varchar_internal;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBStringT> duckdb_value_string_internal;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, DuckDBBlob> duckdb_value_blob;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, ulong, ulong, byte> duckdb_value_is_null;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, nint*, DuckDBState> duckdb_execute_prepared_streaming;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, nint*, DuckDBState> duckdb_pending_prepared_streaming;
 
-      // --- Instance cache ---
-      public delegate* unmanaged[Cdecl]<nint> duckdb_create_instance_cache;
-      public delegate* unmanaged[Cdecl]<nint, byte*, nint*, nint, byte**, DuckDBState> duckdb_get_or_create_from_cache;
-      public delegate* unmanaged[Cdecl]<nint*, void> duckdb_destroy_instance_cache;
+    // --- Arrow functions (UNSTABLE) ---
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, byte*, nint*, DuckDBState> duckdb_query_arrow;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, nint*, DuckDBState> duckdb_query_arrow_schema;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, nint*, DuckDBState> duckdb_prepared_arrow_schema;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, nint, nint*, void> duckdb_result_arrow_array;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, nint*, DuckDBState> duckdb_query_arrow_array;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, ulong> duckdb_arrow_column_count;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, ulong> duckdb_arrow_row_count;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, ulong> duckdb_arrow_rows_changed;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, byte*> duckdb_query_arrow_error;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, void> duckdb_destroy_arrow;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, void> duckdb_destroy_arrow_stream;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, nint*, DuckDBState> duckdb_execute_prepared_arrow;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, byte*, nint, DuckDBState> duckdb_arrow_scan;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, byte*, nint, nint, nint*, DuckDBState> duckdb_arrow_array_scan;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, nint> duckdb_stream_fetch_chunk;
 
-      // --- New append functions ---
-      public delegate* unmanaged[Cdecl]<nint, nint, ulong, ulong, DuckDBState> duckdb_append_default_to_chunk;
-#endif
+    // --- Instance cache (UNSTABLE) ---
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint> duckdb_create_instance_cache;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, byte*, nint*, nint, byte**, DuckDBState> duckdb_get_or_create_from_cache;
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint*, void> duckdb_destroy_instance_cache;
+
+    // --- New append functions (UNSTABLE) ---
+    [Experimental("DUCKDBExtensionKit001", Message = "This is an unstable DuckDB API that may change in a future version. Set <UseUnstableApi>true</UseUnstableApi> in your .csproj to suppress this warning.")]
+    public delegate* unmanaged[Cdecl]<nint, nint, ulong, ulong, DuckDBState> duckdb_append_default_to_chunk;
 }
