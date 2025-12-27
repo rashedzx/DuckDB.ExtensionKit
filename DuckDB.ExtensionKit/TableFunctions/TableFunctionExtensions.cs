@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using DuckDB.ExtensionKit.Common;
+using DuckDB.ExtensionKit.DataChunk.Writer;
+using DuckDB.ExtensionKit.Extensions;
+using DuckDB.ExtensionKit.Native;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using DuckDB.ExtensionKit.DataChunk.Writer;
-using DuckDB.ExtensionKit.NativeObjects;
 
-namespace DuckDB.ExtensionKit;
+namespace DuckDB.ExtensionKit.TableFunctions;
 
 public static class TableFunctionExtensions
 {
@@ -178,25 +179,4 @@ public static class TableFunctionExtensions
 
     [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
     private static unsafe void DestroyExtraInfo(void* pointer) => new IntPtr(pointer).FreeHandle();
-}
-
-public record ColumnInfo(string Name, Type Type);
-
-public record TableFunction(IReadOnlyList<ColumnInfo> Columns, IEnumerable Data);
-
-class TableFunctionInfo(Func<IReadOnlyList<IDuckDBValueReader>, TableFunction> bind, Action<object?, VectorDataWriterBase[], ulong> mapper)
-{
-    public Func<IReadOnlyList<IDuckDBValueReader>, TableFunction> Bind { get; } = bind;
-    public Action<object?, VectorDataWriterBase[], ulong> Mapper { get; } = mapper;
-}
-
-class TableFunctionBindData(IReadOnlyList<ColumnInfo> columns, IEnumerator dataEnumerator) : IDisposable
-{
-    public IReadOnlyList<ColumnInfo> Columns { get; } = columns;
-    public IEnumerator DataEnumerator { get; } = dataEnumerator;
-
-    public void Dispose()
-    {
-        (DataEnumerator as IDisposable)?.Dispose();
-    }
 }

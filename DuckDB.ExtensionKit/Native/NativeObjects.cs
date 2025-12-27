@@ -1,7 +1,7 @@
 ﻿using System.Numerics;
 using System.Runtime.InteropServices;
 
-namespace DuckDB.ExtensionKit;
+namespace DuckDB.ExtensionKit.Native;
 
 
 // ============================================================================

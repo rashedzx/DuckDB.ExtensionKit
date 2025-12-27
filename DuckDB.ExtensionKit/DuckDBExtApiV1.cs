@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using DuckDB.ExtensionKit.Native;
+using System.Runtime.InteropServices;
 
 namespace DuckDB.ExtensionKit;
 

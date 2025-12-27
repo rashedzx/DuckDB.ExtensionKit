@@ -11,7 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DuckDBExtension\DuckDB.ExtensionKit.csproj" />
+    <ProjectReference Include="..\DuckDB.ExtensionKit\DuckDB.ExtensionKit.csproj" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.15.0" />
   </ItemGroup>
 
 </Project>

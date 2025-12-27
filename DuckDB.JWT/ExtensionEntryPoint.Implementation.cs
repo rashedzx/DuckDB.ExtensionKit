@@ -1,6 +1,7 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using DuckDB.Extension;
-using DuckDB.ExtensionKit;
+﻿using DuckDB.ExtensionKit.Native;
+using DuckDB.ExtensionKit.ScalarFunctions;
+using DuckDB.ExtensionKit.TableFunctions;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace DuckDB.JWT;
 

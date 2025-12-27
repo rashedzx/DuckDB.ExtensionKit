@@ -1,4 +1,4 @@
-﻿namespace DuckDB.ExtensionKit;
+﻿namespace DuckDB.ExtensionKit.Native;
 
 public interface IDuckDBValueReader
 {

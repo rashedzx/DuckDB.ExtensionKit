@@ -1,4 +1,6 @@
-﻿using DuckDB.Extension;
+﻿using DuckDB.ExtensionKit;
+using DuckDB.ExtensionKit.Native;
+using DuckDB.ExtensionKit.NativeMethods;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -51,7 +53,7 @@ public static unsafe partial class ExtensionEntryPoint
             Api.duckdb_disconnect(&connection);
             return 1; // success
         }
-        catch(Exception e)
+        catch(Exception)
         {
             return 0;
         }

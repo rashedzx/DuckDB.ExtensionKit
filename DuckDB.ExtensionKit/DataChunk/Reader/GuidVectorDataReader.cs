@@ -1,4 +1,7 @@
-﻿namespace DuckDB.ExtensionKit.DataChunk.Reader;
+﻿using DuckDB.ExtensionKit.Extensions;
+using DuckDB.ExtensionKit.Native;
+
+namespace DuckDB.ExtensionKit.DataChunk.Reader;
 
 internal sealed class GuidVectorDataReader : VectorDataReaderBase
 {

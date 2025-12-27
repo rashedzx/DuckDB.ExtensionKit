@@ -2,9 +2,9 @@
 using System.Runtime.CompilerServices;
 using Microsoft.Win32.SafeHandles;
 
-namespace DuckDB.ExtensionKit.NativeObjects;
+namespace DuckDB.ExtensionKit.Native;
 
-public class DuckDBValue : SafeHandleZeroOrMinusOneIsInvalid, IDuckDBValueReader
+internal class DuckDBValue : SafeHandleZeroOrMinusOneIsInvalid, IDuckDBValueReader
 {
     private DuckDBValue[] childValues = [];
 

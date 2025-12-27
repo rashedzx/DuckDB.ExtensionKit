@@ -1,18 +1,19 @@
-﻿using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using DuckDB.ExtensionKit.DataChunk.Reader;
+﻿using DuckDB.ExtensionKit.DataChunk.Reader;
 using DuckDB.ExtensionKit.DataChunk.Writer;
-using DuckDB.ExtensionKit.NativeObjects;
+using DuckDB.ExtensionKit.Extensions;
+using DuckDB.ExtensionKit.Native;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
-namespace DuckDB.ExtensionKit;
+namespace DuckDB.ExtensionKit.ScalarFunctions;
 
 public static class ScalarFunctionExtensions
 {
-    public static void RegisterScalarFunction<TResult>(this DuckDBConnection connection, string name, Action<IDuckDBDataWriter, ulong> action, bool isPureFunction = false) => RegisterScalarMethod(connection, name,
-        (_, w, index) => action(w, index), TypeExtensions.GetLogicalType<TResult>(), varargs: false, !isPureFunction);
+    public static void RegisterScalarFunction<TResult>(this DuckDBConnection connection, string name, Action<IDuckDBDataWriter, ulong> action, bool isPureFunction = false) => 
+        RegisterScalarMethod(connection, name, (_, w, index) => action(w, index), TypeExtensions.GetLogicalType<TResult>(), varargs: false, !isPureFunction);
 
-    public static void RegisterScalarFunction<T, TResult>(this DuckDBConnection connection, string name, Action<IReadOnlyList<IDuckDBDataReader>, IDuckDBDataWriter, ulong> action, bool isPureFunction = true,
-        bool @params = false) => RegisterScalarMethod(connection, name, action,
+    public static void RegisterScalarFunction<T, TResult>(this DuckDBConnection connection, string name, Action<IReadOnlyList<IDuckDBDataReader>, IDuckDBDataWriter, ulong> action, bool isPureFunction = true, bool @params = false) => 
+        RegisterScalarMethod(connection, name, action,
         TypeExtensions.GetLogicalType<TResult>(), @params, !isPureFunction, TypeExtensions.GetLogicalType<T>());
 
     public static void RegisterScalarFunction<T1, T2, TResult>(this DuckDBConnection connection, string name, Action<IReadOnlyList<IDuckDBDataReader>, IDuckDBDataWriter, ulong> action, bool isPureFunction = true) =>
@@ -98,8 +99,7 @@ public static class ScalarFunctionExtensions
 
         if (handle.Target is not ScalarFunctionInfo functionInfo)
         {
-            throw new InvalidOperationException(
-                "User defined scalar function execution failed. Function extra info is null");
+            throw new InvalidOperationException("User defined scalar function execution failed. Function extra info is null");
         }
 
         var readers = new VectorDataReaderBase[NativeMethods.NativeMethods.DataChunks.DuckDBDataChunkGetColumnCount(dataChunk)];
@@ -107,8 +107,7 @@ public static class ScalarFunctionExtensions
         for (var index = 0; index < readers.Length; index++)
         {
             var vector = NativeMethods.NativeMethods.DataChunks.DuckDBDataChunkGetVector(dataChunk, index);
-            readers[index] =
-                VectorDataReaderFactory.CreateReader(vector, NativeMethods.NativeMethods.Vectors.DuckDBVectorGetColumnType(vector));
+            readers[index] = VectorDataReaderFactory.CreateReader(vector, NativeMethods.NativeMethods.Vectors.DuckDBVectorGetColumnType(vector));
         }
 
         var writer = VectorDataWriterFactory.CreateWriter(outputVector, functionInfo.ReturnType);

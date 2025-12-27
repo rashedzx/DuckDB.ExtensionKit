@@ -1,4 +1,4 @@
-﻿namespace DuckDB.ExtensionKit.NativeObjects;
+﻿namespace DuckDB.ExtensionKit.Native;
 
 public class DuckDBConnection(IntPtr connection)
 {

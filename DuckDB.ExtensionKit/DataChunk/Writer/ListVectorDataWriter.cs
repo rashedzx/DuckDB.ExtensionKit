@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Numerics;
-using DuckDB.ExtensionKit.NativeObjects;
+using DuckDB.ExtensionKit.Common;
+using DuckDB.ExtensionKit.Native;
 
 namespace DuckDB.ExtensionKit.DataChunk.Writer;
 

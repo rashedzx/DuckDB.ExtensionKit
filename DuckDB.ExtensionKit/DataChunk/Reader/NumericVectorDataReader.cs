@@ -1,4 +1,6 @@
-﻿using System.Numerics;
+﻿using DuckDB.ExtensionKit.Extensions;
+using DuckDB.ExtensionKit.Native;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 
 namespace DuckDB.ExtensionKit.DataChunk.Reader;

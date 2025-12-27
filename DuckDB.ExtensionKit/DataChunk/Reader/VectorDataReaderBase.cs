@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using DuckDB.ExtensionKit.Extensions;
+using DuckDB.ExtensionKit.Native;
+using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 
 namespace DuckDB.ExtensionKit.DataChunk.Reader;

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Win32.SafeHandles;
 
-namespace DuckDB.ExtensionKit.NativeObjects;
+namespace DuckDB.ExtensionKit.Native;
 
-public class DuckDBLogicalType() : SafeHandleZeroOrMinusOneIsInvalid(true)
+internal class DuckDBLogicalType() : SafeHandleZeroOrMinusOneIsInvalid(true)
 {
     public DuckDBLogicalType(IntPtr handle) : this()
     {

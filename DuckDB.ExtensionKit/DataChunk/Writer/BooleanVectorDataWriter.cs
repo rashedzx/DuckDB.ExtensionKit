@@ -1,4 +1,6 @@
-﻿namespace DuckDB.ExtensionKit.DataChunk.Writer;
+﻿using DuckDB.ExtensionKit.Native;
+
+namespace DuckDB.ExtensionKit.DataChunk.Writer;
 
 internal sealed unsafe class BooleanVectorDataWriter(IntPtr vector, void* vectorData, DuckDBType columnType) : VectorDataWriterBase(vector, vectorData, columnType)
 {

@@ -1,8 +1,8 @@
 ﻿using DuckDB.ExtensionKit.DataChunk.Reader;
 using DuckDB.ExtensionKit.DataChunk.Writer;
-using DuckDB.ExtensionKit.NativeObjects;
+using DuckDB.ExtensionKit.Native;
 
-namespace DuckDB.ExtensionKit;
+namespace DuckDB.ExtensionKit.ScalarFunctions;
 
 class ScalarFunctionInfo(DuckDBLogicalType returnType, Action<VectorDataReaderBase[], VectorDataWriterBase, ulong> action) : IDisposable
 {

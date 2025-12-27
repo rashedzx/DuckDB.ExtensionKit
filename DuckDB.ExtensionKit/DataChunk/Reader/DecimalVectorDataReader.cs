@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using DuckDB.ExtensionKit.Native;
+using System.Numerics;
 
 namespace DuckDB.ExtensionKit.DataChunk.Reader;
 

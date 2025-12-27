@@ -1,8 +1,8 @@
 ﻿using Microsoft.Win32.SafeHandles;
 
-namespace DuckDB.ExtensionKit.NativeObjects;
+namespace DuckDB.ExtensionKit.Native;
 
-public class DuckDBDataChunk : SafeHandleZeroOrMinusOneIsInvalid
+internal class DuckDBDataChunk : SafeHandleZeroOrMinusOneIsInvalid
 {
     public DuckDBDataChunk() : base(true)
     {

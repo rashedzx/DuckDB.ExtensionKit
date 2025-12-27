@@ -1,7 +1,7 @@
 ﻿using System.Numerics;
-using DuckDB.ExtensionKit.NativeObjects;
+using DuckDB.ExtensionKit.Native;
 
-namespace DuckDB.ExtensionKit;
+namespace DuckDB.ExtensionKit.Extensions;
 
 internal static class TypeExtensions
 {

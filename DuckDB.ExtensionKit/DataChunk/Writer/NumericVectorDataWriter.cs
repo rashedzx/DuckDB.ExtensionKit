@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using DuckDB.ExtensionKit.Native;
+using System.Numerics;
 
 namespace DuckDB.ExtensionKit.DataChunk.Writer;
 
@@ -6,5 +7,5 @@ internal sealed unsafe class NumericVectorDataWriter(IntPtr vector, void* vector
 {
     internal override bool AppendNumeric<T>(T value, ulong rowIndex) => AppendValueInternal(value, rowIndex);
 
-    internal override bool AppendBigInteger(BigInteger value, ulong rowIndex) => AppendValueInternal<DuckDBHugeInt>(new DuckDBHugeInt(value), rowIndex);
+    internal override bool AppendBigInteger(BigInteger value, ulong rowIndex) => AppendValueInternal(new DuckDBHugeInt(value), rowIndex);
 }

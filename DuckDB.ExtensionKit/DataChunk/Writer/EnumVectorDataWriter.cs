@@ -1,4 +1,5 @@
-﻿using DuckDB.ExtensionKit.NativeObjects;
+﻿using DuckDB.ExtensionKit.Extensions;
+using DuckDB.ExtensionKit.Native;
 
 namespace DuckDB.ExtensionKit.DataChunk.Writer;
 

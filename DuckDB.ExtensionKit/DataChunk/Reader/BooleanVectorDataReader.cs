@@ -1,4 +1,6 @@
-﻿namespace DuckDB.ExtensionKit.DataChunk.Reader;
+﻿using DuckDB.ExtensionKit.Native;
+
+namespace DuckDB.ExtensionKit.DataChunk.Reader;
 
 internal sealed class BooleanVectorDataReader : VectorDataReaderBase
 {
