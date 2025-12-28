@@ -2,12 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
+    <RuntimeIdentifiers>win-x64;win-arm64;linux-x64;linux-arm64;osx-x64;osx-arm64</RuntimeIdentifiers>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <IsAotCompatible>True</IsAotCompatible>
     <PublishAot>true</PublishAot>
+    <IsAotCompatible>true</IsAotCompatible>
+    <VerifyReferenceAotCompatibility>true</VerifyReferenceAotCompatibility>
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
 
@@ -29,6 +31,15 @@
     <NoWarn>$(NoWarn);DUCKDBExtensionKit001</NoWarn>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <DuckDBPlatform Condition="'$(RuntimeIdentifier)' == 'win-x64'">windows_amd64</DuckDBPlatform>
+    <DuckDBPlatform Condition="'$(RuntimeIdentifier)' == 'win-arm64'">windows_arm64</DuckDBPlatform>
+    <DuckDBPlatform Condition="'$(RuntimeIdentifier)' == 'linux-x64'">linux_amd64</DuckDBPlatform>
+    <DuckDBPlatform Condition="'$(RuntimeIdentifier)' == 'linux-arm64'">linux_arm64</DuckDBPlatform>
+    <DuckDBPlatform Condition="'$(RuntimeIdentifier)' == 'osx-x64'">osx_amd64</DuckDBPlatform>
+    <DuckDBPlatform Condition="'$(RuntimeIdentifier)' == 'osx-arm64'">osx_arm64</DuckDBPlatform>
+  </PropertyGroup>
+
   <ItemGroup>
     <CompilerVisibleProperty Include="ExtensionName" />
     <CompilerVisibleProperty Include="DuckDBVersion" />
@@ -41,5 +52,13 @@
                       ReferenceOutputAssembly="false" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.15.0" />
   </ItemGroup>
+
+  <Target Name="PackageExtension" AfterTargets="Publish" Condition="'$(PublishAot)' == 'true'">
+    <Error Condition="'$(DuckDBPlatform)' == ''" Text="Unknown RuntimeIdentifier: $(RuntimeIdentifier)" />
+
+    <Exec Command="python extension-ci-tools\scripts\append_extension_metadata.py -l &quot;$(PublishDir)$(AssemblyName).dll&quot; -o &quot;$(PublishDir)$(ExtensionName).duckdb_extension&quot; -n $(ExtensionName) -p $(DuckDBPlatform) -dv $(DuckDBVersion) -ev $(ExtensionVersion) --abi-type $(AbiType)" />
+
+    <Message Importance="High" Text="Created $(ExtensionName).duckdb_extension ($(AbiType), $(DuckDBVersion), $(DuckDBPlatform))" />
+  </Target>
 
 </Project>

@@ -1,0 +1,3 @@
+[submodule "DuckDB.JWT/extension-ci-tools"]
+	path = DuckDB.JWT/extension-ci-tools
+	url = https://github.com/duckdb/extension-ci-tools
