@@ -129,6 +129,16 @@ To use DuckDB's [unstable Extension C API functions](https://github.com/duckdb/e
 
 This changes the ABI type to `C_STRUCT_UNSTABLE` and suppresses the experimental warnings on unstable API functions. Note that using the unstable API pins your extension to the exact DuckDB version.
 
+## How It Works
+
+1. **Source Generator** - At compile time, the generator finds your `[DuckDBExtension]` class and generates a native entry point function (`{extension}_init_c_api`) marked with `[UnmanagedCallersOnly]`
+
+2. **AOT Compilation** - .NET compiles your code to a native binary that exports the entry point, with no runtime dependency
+
+3. **Extension Loading** - When DuckDB loads your extension, it calls the entry point which:
+   - Initializes the C API and receives function pointers to DuckDB's internal APIs
+   - Obtains a database connection and calls your `RegisterFunctions` method to register scalar/table functions
+
 ## Features
 
 - **Type-safe APIs** - Register scalar and table functions with generic type parameters
