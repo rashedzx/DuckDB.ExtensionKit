@@ -51,6 +51,21 @@ jobs:
     - name: Build extension with Native AOT
       run: dotnet publish DuckDB.JWT/DuckDB.JWT.csproj -c Release -r ${{ matrix.rid }}
 
+    - name: Debug - List publish directory contents
+      shell: bash
+      run: |
+        echo "=== Publish Directory Contents ==="
+        PUBLISH_DIR="DuckDB.JWT/bin/Release/net10.0/${{ matrix.rid }}/publish"
+        if [ -d "$PUBLISH_DIR" ]; then
+          ls -lah "$PUBLISH_DIR"
+          echo ""
+          echo "=== File details ==="
+          find "$PUBLISH_DIR" -type f -exec file {} \;
+        else
+          echo "ERROR: Publish directory not found: $PUBLISH_DIR"
+          exit 1
+        fi
+
     - name: Build test project
       run: dotnet build DuckDB.JWT.Tests/DuckDB.JWT.Tests.csproj -c Debug
 
